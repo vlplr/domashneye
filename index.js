@@ -1,14 +1,10 @@
-let NULL = null;
-let nichego;
-let OBJECT = {};
-let SYMBOL = Symbol('символ');
 
-const dataTypes = [1, "woqe4r54tuiy", false, NULL, nichego, OBJECT];
+function myFunc() {
+    let firstPrompt = prompt ('Напиши что-то')
+    let secondPrompt = prompt ('Напиши ешё что-то')
+    let thirdPrompt = prompt ('Напиши что-то в последний раз')
+    console.log(`${secondPrompt} ${thirdPrompt} ${firstPrompt}`);
+};
 
-dataTypes.forEach(function (value) {
-    if (value === null) {
-        console.log("null");
-    } else {
-    console.log(typeof value);
-    }
-});
+myFunc();
+
