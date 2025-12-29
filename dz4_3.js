@@ -40,48 +40,56 @@ if (userCity === "Киев" && userFavouriteSport !== "Шахматы" && userFa
 userData() */
 
 function userData() {
-    let userBirthYear = +prompt("В каком году ты родился?");
-    let userCity = prompt("В каком городе ты живёшь?");
-    let userFavouriteSport = prompt("Какой твой любимый спорт?");
+    let birthYear = prompt("В каком году ты родился?");
+    let city = prompt("В каком городе ты живёшь?");
+    let sport = prompt("Какой твой любимый спорт?");
 
-    let age = new Date().getFullYear() - userBirthYear;
+    let message = "";
 
-    let isChess =
-        userFavouriteSport === "Шахматы" ||
-        userFavouriteSport === "Шахи";
+    // Возраст
+    if (birthYear === null) {
+        message += "Жаль, что Вы не захотели ввести свою дату рождения\n";
+    } else {
+        let age = new Date().getFullYear() - birthYear;
+        message += `Твой возраст: ${age}\n`;
+    }
 
-    let isFootball = userFavouriteSport === "Футбол";
-    let isBasketball = userFavouriteSport === "Баскетбол";
-
+    // Город
     let capital = "";
+    if (city === null) {
+        message += "Жаль, что Вы не захотели ввести свой город\n";
+    } else {
+        if (city === "Киев" || city === "Київ") {
+            capital = "столице Украины";
+        } else if (city === "Вашингтон") {
+            capital = "столице США";
+        } else if (city === "Лондон") {
+            capital = "столице Великобритании";
+        }
 
-    if (userCity === "Киев" || userCity === "Київ") {
-        capital = "столице Украины";
-    } else if (userCity === "Вашингтон") {
-        capital = "столице США";
-    } else if (userCity === "Лондон") {
-        capital = "столице Великобритании";
+        if (capital) {
+            message += `Ты живешь в ${capital}\n`;
+        } else {
+            message += `Ты живешь в городе ${city}\n`;
+        }
     }
 
-    let message = `Твой возраст: ${age}\n`;
-
-    if (capital) {
-        message += `Ты живешь в ${capital}\n`;
+    // Спорт
+    if (sport === null) {
+        message += "Жаль, что Вы не захотели ввести свой вид спорта";
     } else {
-        message += `Ты живешь в городе ${userCity}\n`;
-    }
-
-    if (isChess) {
-        message += "Круто! Хочешь стать Магнусом Карлсеном?";
-    } else if (isFootball) {
-        message += "Круто! Хочешь стать Криштиану Роналду?";
-    } else if (isBasketball) {
-        message += "Круто! Хочешь стать Майклом Джорданом?";
-    } else {
-        message += `Твой любимый спорт — ${userFavouriteSport}`;
+        if (sport === "Шахматы" || sport === "Шахи") {
+            message += "Круто! Хочешь стать Магнусом Карлсеном?";
+        } else if (sport === "Футбол") {
+            message += "Круто! Хочешь стать Криштиану Роналду?";
+        } else if (sport === "Баскетбол") {
+            message += "Круто! Хочешь стать Майклом Джорданом?";
+        } else {
+            message += `Твой любимый спорт — ${sport}`;
+        }
     }
 
     alert(message);
 }
 
-userData()
+userData();
