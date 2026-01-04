@@ -1,14 +1,3 @@
-/* let integer = +prompt("Напиши целое число");
-for (i = 2; i < integer; i++) {
-    let n = integer % i;
-    if (n !== 0) {
-        continue;
-    } else if (n === 0) {
-        console.log("Это не простое число");
-        break;
-    }
-} */
-
 let integer = +prompt("Напиши целое число");
 
 if (integer < 2) {
@@ -28,4 +17,5 @@ if (integer < 2) {
     } else {
         console.log("Это не простое число");
     }
+
 }
