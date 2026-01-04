@@ -1,4 +1,4 @@
-function identityCheck () {
+/* function identityCheck () {
     let threeDigitNumber = prompt("Напиши трёхзначное число")
     if (threeDigitNumber.length === 3 && !isNaN(threeDigitNumber)) {
     if (threeDigitNumber[0] === threeDigitNumber[1] && threeDigitNumber[1] === threeDigitNumber[2]) {
@@ -16,4 +16,20 @@ function identityCheck () {
     }
 }
 
-identityCheck ()
+identityCheck () */
+
+function identityCheck() {
+    const num = prompt("Напиши трёхзначное число");
+
+    if (!num || num.length !== 3 || isNaN(num)) {
+        console.log("Это не трёхзначное число");
+        return;
+    }
+
+    const [a, b, c] = num;
+
+    console.log(a === b && b === c ? "Все цифры числа одинаковые" : "Все цифры числа не одинаковые");
+    console.log(a === b || b === c || a === c ? "Среди цифр числа есть одинаковые" : "Среди цифр числа нет одинаковых");
+}
+
+identityCheck();
