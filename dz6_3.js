@@ -26,10 +26,11 @@ const contactsBook = {
 
     findContact(name) {
         for (let i = 0; i < this.contacts.length; i++) {
-            if (this.contacts[i].name === name) {
+            if (this.contacts[i].name.toLowerCase().includes(name.toLowerCase())) {
                 return this.contacts[i];
             }
         }
         return "Контакт не найден";
     }
 };
+
