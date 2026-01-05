@@ -33,8 +33,3 @@ const contactsBook = {
         return "Контакт не найден";
     }
 };
-
-console.log(contactsBook.findContact("Максим"));
-contactsBook.addContact("Мама", "+380526798481", "mymom@email.com");
-
-console.log(contactsBook.contacts);
