@@ -1,6 +1,5 @@
 let nothing;
-let multiTypeArray = ["string", 235, {}, true, nothing, null, Symbol("symbol"), 4586];
-function arithmeticMean () {
+function arithmeticMean (multiTypeArray) {
     const numbers = multiTypeArray.filter(function (el) {
         return Number.isFinite(el);
     });
@@ -11,4 +10,5 @@ function arithmeticMean () {
     return numbers.length ? sum / numbers.length : "В массиве нет чисел";
 }
 
-console.log(arithmeticMean());
+
+console.log(arithmeticMean(["string", 235, {}, true, nothing, null, Symbol("symbol"), 4586]));
