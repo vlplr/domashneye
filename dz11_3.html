@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Випадкове зображення</title>
+</head>
+<body>
+
+<img id="randomImg" src="" alt="Випадкове зображення" width="300">
+
+<script>
+  const img = document.getElementById("randomImg");
+
+  const randomNumber = Math.floor(Math.random() * 9) + 1;
+
+  img.src = "images/" + randomNumber + ".jpg";
+</script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do List</title>
+</head>
+<body>
+
+<ul id="taskList">
+  <li>Завдання 1 <button>Видалити</button></li>
+  <li>Завдання 2 <button>Видалити</button></li>
+  <li>Завдання 3 <button>Видалити</button></li>
+</ul>
+
+<input type="text" id="taskInput" placeholder="Додати нове завдання">
+<button id="addBtn">Додати</button>
+
+<script>
+  const list = document.getElementById("taskList");
+  const input = document.getElementById("taskInput");
+  const addBtn = document.getElementById("addBtn");
+
+  // Делегування для видалення
+  list.addEventListener("click", (event) => {
+    if (event.target.tagName === "BUTTON") {
+      event.target.parentElement.remove();
+    }
+  });
+
+  // Додавання нового завдання
+  addBtn.addEventListener("click", () => {
+    const text = input.value.trim();
+
+    if (text === "") return;
+
+    const li = document.createElement("li");
+    li.innerHTML = `${text} <button>Видалити</button>`;
+
+    list.appendChild(li);
+    input.value = "";
+  });
+</script>
+
+</body>
+</html>

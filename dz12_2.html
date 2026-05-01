@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Кнопки</title>
+</head>
+<body>
+
+<div id="container">
+  <button>Кнопка 1</button>
+  <button>Кнопка 2</button>
+  <button>Кнопка 3</button>
+</div>
+
+<script>
+  const container = document.getElementById("container");
+
+  container.addEventListener("click", (event) => {
+    if (event.target.tagName === "BUTTON") {
+      alert("Клікнуто на кнопці: " + event.target.textContent);
+    }
+  });
+</script>
+
+</body>
+</html>

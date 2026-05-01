@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Зміна кольору</title>
+  <style>
+    #text {
+      color: black;
+      font-size: 20px;
+    }
+
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<p id="text">Це текст, який змінює колір</p>
+<button id="btn">Змінити колір</button>
+
+<script>
+  const text = document.getElementById("text");
+  const button = document.getElementById("btn");
+
+  button.addEventListener("click", () => {
+    text.classList.toggle("active");
+  });
+</script>
+
+</body>
+</html>

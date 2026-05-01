@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Форма</title>
+  <style>
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+    input, textarea {
+      display: block;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<form id="form">
+  <label>
+    Name:
+    <input type="text" id="name">
+    <div class="error" id="nameError"></div>
+  </label>
+
+  <label>
+    Message:
+    <textarea id="message"></textarea>
+    <div class="error" id="messageError"></div>
+  </label>
+
+  <label>
+    Phone:
+    <input type="text" id="phone">
+    <div class="error" id="phoneError"></div>
+  </label>
+
+  <label>
+    Email:
+    <input type="text" id="email">
+    <div class="error" id="emailError"></div>
+  </label>
+
+  <button type="submit">Відправити</button>
+</form>
+
+<script>
+  const form = document.getElementById("form");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const email = document.getElementById("email").value.trim();
+
+    document.querySelectorAll(".error").forEach(el => el.textContent = "");
+
+    let isValid = true;
+
+    // Name
+    if (name === "") {
+      document.getElementById("nameError").textContent = "Введіть ім'я";
+      isValid = false;
+    }
+
+    // Message (мін 5 символів)
+    if (message.length < 5) {
+      document.getElementById("messageError").textContent = "Мінімум 5 символів";
+      isValid = false;
+    }
+
+    // Phone (+380...)
+    const phoneRegex = /^\+380\d{9}$/;
+    if (!phoneRegex.test(phone)) {
+      document.getElementById("phoneError").textContent = "Формат: +380XXXXXXXXX";
+      isValid = false;
+    }
+
+    // Email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      document.getElementById("emailError").textContent = "Некоректний email";
+      isValid = false;
+    }
+
+    if (isValid) {
+      console.log({
+        name,
+        message,
+        phone,
+        email
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

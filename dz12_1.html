@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Редірект</title>
+</head>
+<body>
+
+<button id="setLink">Ввести посилання</button>
+<button id="goToLink">Перейти</button>
+
+<script>
+  let savedLink = "";
+
+  const setBtn = document.getElementById("setLink");
+  const goBtn = document.getElementById("goToLink");
+
+  setBtn.addEventListener("click", () => {
+    const link = prompt("Введіть посилання:");
+    
+    if (link) {
+      savedLink = link;
+    }
+  });
+
+  goBtn.addEventListener("click", () => {
+    if (savedLink) {
+      window.location.href = savedLink;
+    } else {
+      alert("Спочатку введіть посилання!");
+    }
+  });
+</script>
+
+</body>
+</html>
