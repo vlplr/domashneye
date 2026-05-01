@@ -40,14 +40,12 @@
         <button>Видалити</button>
       `;
 
-      // toggle done
       li.querySelector("input").addEventListener("change", () => {
         tasks[index].done = !tasks[index].done;
         saveTasks();
         renderTasks();
       });
 
-      // delete
       li.querySelector("button").addEventListener("click", () => {
         tasks.splice(index, 1);
         saveTasks();
