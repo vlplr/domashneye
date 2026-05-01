@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Timer</title>
+  <style>
+    #timer {
+      font-size: 40px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+
+<div id="timer">00:00</div>
+
+<script>
+  let startTime = 90; // час у секундах (наприклад 1:30)
+  let timeLeft = startTime;
+
+  const timerEl = document.getElementById("timer");
+
+  function formatTime(seconds) {
+    const min = String(Math.floor(seconds / 60)).padStart(2, "0");
+    const sec = String(seconds % 60).padStart(2, "0");
+    return `${min}:${sec}`;
+  }
+
+  timerEl.textContent = formatTime(timeLeft);
+
+  const interval = setInterval(() => {
+    timeLeft--;
+
+    timerEl.textContent = formatTime(timeLeft);
+
+    if (timeLeft <= 0) {
+      clearInterval(interval);
+      timerEl.textContent = "00:00";
+    }
+  }, 1000);
+</script>
+
+</body>
+</html>
