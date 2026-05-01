@@ -20,14 +20,12 @@
   const input = document.getElementById("taskInput");
   const addBtn = document.getElementById("addBtn");
 
-  // Делегування для видалення
   list.addEventListener("click", (event) => {
     if (event.target.tagName === "BUTTON") {
       event.target.parentElement.remove();
     }
   });
 
-  // Додавання нового завдання
   addBtn.addEventListener("click", () => {
     const text = input.value.trim();
 
